@@ -350,20 +350,20 @@ class Grafo():
         return camino_mas_corto
 
     def contar_maravillas(self):
-        paises = {}
+        Países = {}
         aux = self.__inicio
         while aux is not None:
-            if aux.datos['pais'] not in paises:
+            if aux.datos['País'] not in Países:
                 print('-')
-                paises[aux.datos['pais']] = {'arq': False, 'nat': False}
+                Países[aux.datos['País']] = {'arq': False, 'nat': False}
 
             if aux.datos['tipo'] == 'n':
-                paises[aux.datos['pais']]['nat'] = True
+                Países[aux.datos['País']]['nat'] = True
             else:
-                paises[aux.datos['pais']]['arq'] = True
+                Países[aux.datos['País']]['arq'] = True
             aux = aux.siguiente
 
-        return paises
+        return Países
 
     def kruskal_minimo(self):
         def buscar_en_bosque(bosque, buscado):

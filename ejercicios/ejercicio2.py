@@ -135,3 +135,7 @@ def mainej2():
         cont = 0
         cont = inorden_tipo(arbol_nombres, cont)
         print('Cantidad del tipo fuego:',cont)
+        print("=" * 50)
+        mainej2()
+    else:
+        pass

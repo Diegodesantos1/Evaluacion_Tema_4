@@ -79,6 +79,3 @@ def mainej1():
     print(Fore.LIGHTYELLOW_EX + 'La cadena codificada es:',
           Ejercicio1.codificar(cadena_codificar, Ejercicio1.diccionario_convertido))
     print(Fore.RESET)
-
-if __name__ == "__main__":
-    mainej1()
