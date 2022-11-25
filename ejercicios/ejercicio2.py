@@ -133,7 +133,5 @@ def mainej2():
     elif eleccion == 8:
         print('Todos los tipos de Pokémons y cuántos hay de cada tipo:')
         cont = 0
-        tipo = ['agua', 'fuego', 'tierra', 'electrico', 'planta', 'hada', 'volador', 'dragon', 'fantasma', 'siniestro', 'lucha', 'roca', 'psiquico', 'bicho', 'normal', 'veneno', 'acero']
-        print('Pokemons y su tipo:')
         cont = inorden_tipo(arbol_nombres, cont)
         print('Cantidad del tipo fuego:',cont)
