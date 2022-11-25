@@ -1,7 +1,6 @@
 from clases.arbolbinario import insertar_nodo
 from clases.cola import Cola, arribo, atencion, cola_vacia
 from introducir.numero import solicitar_introducir_numero_extremo
-import time
 import csv
 import random
 arbol_nombres = None
@@ -48,6 +47,13 @@ def busqueda_proximidad_poke2(raiz, buscado):
         busqueda_proximidad_poke2(raiz.izq, buscado)
         busqueda_proximidad_poke2(raiz.der, buscado)
 
+def busqueda_proximidad_poke3(raiz, buscado):
+    if(raiz is not None):
+        if(raiz.info[0].debilidad[0:len(buscado)] == buscado):
+            print(raiz.info[0].nombre)
+        busqueda_proximidad_poke3(raiz.izq, buscado)
+        busqueda_proximidad_poke3(raiz.der, buscado)
+
 def inorden_nombre(raiz):
     if(raiz is not None):
         inorden_nombre(raiz.izq)
@@ -73,6 +79,8 @@ def inorden_tipo(raiz, cont):
         print(raiz.info[0].nombre, raiz.info[0].tipo)
         inorden_tipo(raiz.der, cont)
     return cont
+
+
 tipo = ['agua', 'fuego', 'tierra', 'electrico', 'planta', 'hada', 'volador', 'dragon', 'fantasma', 'siniestro', 'lucha', 'roca', 'psiquico', 'bicho', 'normal', 'veneno', 'acero']
 debil = ['agua', 'fuego', 'tierra', 'electrico', 'planta','Jolteon', 'Lycanroc', 'Tyrantum']
 
@@ -83,13 +91,49 @@ for i in range (0, len(nombre)):
     arbol_tipo = insertar_nodo(arbol_tipo, [pokemon, pokemon.tipo])
     arbol_numero = insertar_nodo(arbol_numero, [pokemon, pokemon.numero])
 def mainej2():
-    eleccion = solicitar_introducir_numero_extremo("1. Mostrar información del pokemon dado el número\n2. Mostrar pokemon dado el nombre por proximidad\n3. Mostrar todos los pokemon de un tipo\n4. Buscar por debilidad\n5. Salir", 1, 5)
+    eleccion = solicitar_introducir_numero_extremo("1. Mostrar información del pokemon dado el número\n2. Mostrar pokemon dado el nombre por proximidad\n3. Mostrar todos los pokemon de un tipo\n4. Realizar un listado en orden ascendente por número de Pokémon\n5. Realizar un listado en orden ascendente por nombre de Pokémon\n6. Realizar un listado en orden ascendente por nivel por nombre\n7. Mostrar todos los Pokémons que son débiles frente a Jolteon, Lycanroc y Tyrantrum\n8. Mostrar todos los tipos de Pokémons y cuántos hay de cada tipo.\n9. Salir", 1, 9)
+    print("=" * 50)
     if eleccion == 1:
         numero = solicitar_introducir_numero_extremo("Introduzca el numero del pokemon", 1, len(nombre))
-        print("Nombre: ", datos[numero][1]), print("Tipo: ", datos[numero][2]), print("Debilidad: ", datos[numero][3])
+        print("Nombre: ", datos[numero][1]), print("Tipo: ", datos[numero][2])
+        print("=" * 50)
+        mainej2()
     elif eleccion == 2:
         busqueda_proximidad_poke(arbol_nombres, str(input("Introduzca el nombre del pokemon: ")))
+        print("=" * 50)
+        mainej2()
     elif eleccion == 3:
         tipo = str(input('Ingrese el tipo de pokemon a buscar:'))
         print('Todos los pokemons de un tipo:')
         busqueda_proximidad_poke2(arbol_tipo, tipo.lower())
+        print("=" * 50)
+        mainej2()
+    elif eleccion == 4:
+        print('Listado en orden ascendente por número de Pokémon:')
+        inorden_numero(arbol_numero)
+        print("=" * 50)
+        mainej2()
+    elif eleccion == 5:
+        print('Listado en orden ascendente por nombre de Pokémon:')
+        inorden_nombre(arbol_nombres)
+        print("=" * 50)
+        mainej2()
+    elif eleccion == 6:
+        print('Listado en orden ascendente por nivel por nombre:')
+        por_nivel_nombre(arbol_nombres)
+        print("=" * 50)
+        mainej2()
+    elif eleccion == 7:
+        print('Todos los Pokémons que son débiles frente a Jolteon, Lycanroc y Tyrantrum:')
+        busqueda_proximidad_poke3(arbol_tipo, 'Jolteon')
+        busqueda_proximidad_poke3(arbol_tipo, 'Lycanroc')
+        busqueda_proximidad_poke3(arbol_tipo, 'Tyrantrum')
+        print("=" * 50)
+        mainej2()
+    elif eleccion == 8:
+        print('Todos los tipos de Pokémons y cuántos hay de cada tipo:')
+        cont = 0
+        tipo = ['agua', 'fuego', 'tierra', 'electrico', 'planta', 'hada', 'volador', 'dragon', 'fantasma', 'siniestro', 'lucha', 'roca', 'psiquico', 'bicho', 'normal', 'veneno', 'acero']
+        print('Pokemons y su tipo:')
+        cont = inorden_tipo(arbol_nombres, cont)
+        print('Cantidad del tipo fuego:',cont)
