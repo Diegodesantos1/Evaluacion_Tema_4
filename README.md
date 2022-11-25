@@ -1,5 +1,8 @@
-<h1 aling = "center"> Evaluación Tema 4</>
+<h1 align = "center"> Evaluación Tema 4</h1>
 
+En este [repositorio](https://github.com/Diegodesantos1/Evaluacion_Tema_4) quedan resueltos los ejercicios de evaluación Tema 4 
+
+<h2 align = "center"> Ejercicio 1</h2>
 
 ![image](https://user-images.githubusercontent.com/91721855/203891239-42cd8012-b113-4e3c-8dec-3fbe19b22d6e.png)
 ![image](https://user-images.githubusercontent.com/91721855/203891290-a35c04b9-68d1-4dd4-8dc9-31d156db4218.png)
