@@ -92,51 +92,56 @@ for i in range (0, len(nombre)):
     arbol_tipo = insertar_nodo(arbol_tipo, [pokemon, pokemon.tipo])
     arbol_numero = insertar_nodo(arbol_numero, [pokemon, pokemon.numero])
 def mainej2():
-    eleccion = solicitar_introducir_numero_extremo("1. Mostrar información del pokemon dado el número\n2. Mostrar pokemon dado el nombre por proximidad\n3. Mostrar todos los pokemon de un tipo\n4. Realizar un listado en orden ascendente por número de Pokémon\n5. Realizar un listado en orden ascendente por nombre de Pokémon\n6. Realizar un listado en orden ascendente por nivel por nombre\n7. Mostrar todos los Pokémons que son débiles frente a Jolteon, Lycanroc y Tyrantrum\n8. Mostrar todos los tipos de Pokémons y cuántos hay de cada tipo.\n9. Salir", 1, 9)
+    eleccion = solicitar_introducir_numero_extremo("1. Mostrar los datos cargados\n2. Mostrar información del pokemon dado el número\n3. Mostrar pokemon dado el nombre por proximidad\n4. Mostrar todos los pokemon de un tipo\n5. Realizar un listado en orden ascendente por número de Pokémon\n6. Realizar un listado en orden ascendente por nombre de Pokémon\n7. Realizar un listado en orden ascendente por nivel por nombre\n8. Mostrar todos los Pokémons que son débiles frente a Jolteon, Lycanroc y Tyrantrum\n9. Mostrar todos los tipos de Pokémons y cuántos hay de cada tipo.\n10. Salir", 1, 10)
     print("=" * 50)
     if eleccion == 1:
+        print('Listado en orden por número:')
+        inorden_numero(arbol_numero)
+        print("=" * 50)
+        mainej2()
+    if eleccion == 2:
         numero = solicitar_introducir_numero_extremo("Introduzca el numero del pokemon", 1, len(nombre))
         print("Nombre: ", datos[numero][1]), print("Tipo: ", datos[numero][2])
         print("=" * 50)
         mainej2()
-    elif eleccion == 2:
+    elif eleccion == 3:
         busqueda_proximidad_poke(arbol_nombres, solicitar_introducir_cadena("Introduzca el nombre del pokemon: "))
         print("=" * 50)
         mainej2()
-    elif eleccion == 3:
-        tipo = solicitar_introducir_cadena('Ingrese el tipo de pokemon a buscar:')
+    elif eleccion == 4:
+        tipo = solicitar_introducir_cadena('Ingrese el tipo de pokemon a buscar')
         print('Todos los pokemons de un tipo:')
         busqueda_proximidad_poke2(arbol_tipo, tipo.lower())
         print("=" * 50)
         mainej2()
-    elif eleccion == 4:
+    elif eleccion == 5:
         print('Listado en orden ascendente por número de Pokémon:')
         inorden_numero(arbol_numero)
         print("=" * 50)
         mainej2()
-    elif eleccion == 5:
+    elif eleccion == 6:
         print('Listado en orden ascendente por nombre de Pokémon:')
         inorden_nombre(arbol_nombres)
         print("=" * 50)
         mainej2()
-    elif eleccion == 6:
+    elif eleccion == 7:
         print('Listado en orden ascendente por nivel por nombre:')
         por_nivel_nombre(arbol_nombres)
         print("=" * 50)
         mainej2()
-    elif eleccion == 7:
+    elif eleccion == 8:
         print('Todos los Pokémons que son débiles frente a Jolteon, Lycanroc y Tyrantrum:')
         busqueda_proximidad_poke3(arbol_tipo, 'Jolteon')
         busqueda_proximidad_poke3(arbol_tipo, 'Lycanroc')
         busqueda_proximidad_poke3(arbol_tipo, 'Tyrantrum')
         print("=" * 50)
         mainej2()
-    elif eleccion == 8:
+    elif eleccion == 9:
         print('Todos los tipos de Pokémons y cuántos hay de cada tipo:')
         cont = 0
         cont = inorden_tipo(arbol_nombres, cont)
         print('Cantidad del tipo fuego:',cont)
         print("=" * 50)
         mainej2()
-    else:
+    elif eleccion == 10:
         pass
