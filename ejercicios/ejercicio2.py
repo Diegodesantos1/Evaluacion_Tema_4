@@ -1,10 +1,18 @@
 from clases.arbolbinario import insertar_nodo
 from clases.cola import Cola, arribo, atencion, cola_vacia
+import csv
 import random
 arbol_nombres = None
 arbol_tipo = None
 arbol_numero = None
 
+with open('dataset/pokemon.csv', newline='') as File:
+    reader = csv.reader(File)
+    datos = list(reader)
+
+nombre = []
+for i in range(1, len(datos)):
+    nombre.append(datos[i][1])
 class Pokemon(object):
 
     def __init__(self, nombre, numero, tipo, debilidad):
@@ -16,13 +24,12 @@ class Pokemon(object):
     def __str__(self):
        return self.nombre + ' ' + str(self.numero) + ' ' + self.tipo + ' ' + self.debilidad
 
-tipo = ['agua', 'fuego', 'tierra', 'electrico']
-debil = ['agua', 'fuego', 'tierra', 'electrico', 'Jolteon', 'Lycanroc', 'Tyrantum']
-nombre = ['Bulbasaur', 'Charmander', 'Pikachu', 'Ivysaur', 'Charmeleon', 'Charizard', 'Squirtle', 'wartortle', 'Venusaur']
+tipo = ['agua', 'fuego', 'tierra', 'electrico', 'planta', 'hada', 'volador', 'dragon', 'fantasma', 'siniestro', 'lucha', 'roca', 'psiquico', 'bicho', 'normal', 'veneno', 'acero']
+debil = ['agua', 'fuego', 'tierra', 'electrico', 'Jolteon', 'Lycanroc', 'Tyrantum', 'Garchomp', 'Gardevoir', 'Gengar', 'Mewtwo', 'Machamp', 'Golem', 'Alakazam', 'Butterfree', 'Nidoran', 'Klinklang']
 
 
 for i in range (0, len(nombre)):
-    pokemon = Pokemon(nombre[i], random.randint(1, 100), random.choice(tipo), random.choice(debil))
+    pokemon = Pokemon(nombre[i], random.randint(1, 800), random.choice(tipo), random.choice(debil))
     arbol_nombres = insertar_nodo(arbol_nombres, [pokemon, pokemon.nombre])
     arbol_tipo = insertar_nodo(arbol_tipo, [pokemon, pokemon.tipo])
     arbol_numero = insertar_nodo(arbol_numero, [pokemon, pokemon.numero])
