@@ -21,5 +21,18 @@ class Ejercicio1:
         nodo.der = elemento2
         bosque.append(nodo)
 
+    def generar_tabla(raiz, cadena=''):
+        if(raiz is not None):
+            if(raiz.izq is None):
+                print(raiz.info, cadena)
+            else:
+                cadena += '0'
+                Ejercicio1.generar_tabla(raiz.izq, cadena)
+                cadena = cadena[0:-1]
+                cadena += '1'
+                Ejercicio1.generar_tabla(raiz.der, cadena)
+
+
+Ejercicio1.generar_tabla(Ejercicio1.bosque[0])
 
 
