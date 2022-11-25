@@ -102,3 +102,20 @@ def solicitar_introducir_casilla(invite):
         else:
             # Todos los carácters se han probado y son letras.
             return datoIntroducido.upper()
+
+def solicitar_introducir_cadena_especial(invite):
+    """
+    Esta función verifica que hay un dato introducido entendiendo solo letras
+    """
+    while True:
+        # Entramos en un bucle infinito
+
+        datoIntroducido = solicitar_introducir_cadena(invite)
+
+        for caracter in datoIntroducido:
+            if caracter not in "AF130MT":
+                print("El carácter introducido debe ser A,F,1,3,0,M,T.",
+                    file=sys.stderr)
+        else:
+            # Todos los carácters se han probado y son letras.
+            return datoIntroducido.upper()
