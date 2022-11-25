@@ -1,4 +1,4 @@
-# Evaluacion_Tema_4
+<h1 aling = "center"> Evaluación Tema 4</>
 
 
 ![image](https://user-images.githubusercontent.com/91721855/203891239-42cd8012-b113-4e3c-8dec-3fbe19b22d6e.png)
@@ -17,9 +17,11 @@ from introducir.cadena import solicitar_introducir_cadena_especial
 
 class Ejercicio1:
     os.system('cls')
-    tabla_probabilidades = [['A', 0.2], ['F', 0.17], ['1', 0.13], ['3', 0.21], ['0', 0.05], ['M', 0.09], ['T', 0.15]]
+    tabla_probabilidades = [['A', 0.2], ['F', 0.17], ['1', 0.13], [
+        '3', 0.21], ['0', 0.05], ['M', 0.09], ['T', 0.15]]
 
-    diccionario_convertido = {'A' : '00', '3': '01', '1' : '100', 'T': '110', 'F' : '111', '0': '1010', 'M' : '1011'}
+    diccionario_convertido = {'A': '00', '3': '01', '1': '100',
+                              'T': '110', 'F': '111', '0': '1010', 'M': '1011'}
 
     bosque = []
 
@@ -44,6 +46,7 @@ class Ejercicio1:
                 cadena = cadena[0:-1]
                 cadena += '1'
                 Ejercicio1.generar_tabla(raiz.der, cadena)
+
     def descodificar(cadena, arbol_huff):
         cadena_deco = ''
         raiz_aux = arbol_huff
@@ -59,11 +62,13 @@ class Ejercicio1:
                 raiz_aux = arbol_huff
             cadena_deco
         return cadena_deco
+
     def codificar(cadena, diccionario_convertido):
         cadena_cod = ''
         for caracter in cadena:
             cadena_cod += diccionario_convertido[caracter]
         return cadena_cod
+
 
 def mainej1():
     print(Fore.GREEN + "La tabla de probabilidades es: ", Fore.RESET)
@@ -73,10 +78,17 @@ def mainej1():
     print(Fore.GREEN + "La tabla de codificación es:", Fore.RESET)
     Ejercicio1.generar_tabla(Ejercicio1.bosque[0])
     print("-"*50)
-    cadena_descodificar = solicitar_introducir_numero_binario('Ingrese la cadena a decodificar en binario') ; cadena_descodificar = str(cadena_descodificar)
-    print(Fore.LIGHTYELLOW_EX +'La cadena descodificada es:', Ejercicio1.descodificar(cadena_descodificar, Ejercicio1.bosque[0]) ,Fore.RESET)
+    cadena_descodificar = solicitar_introducir_numero_binario(
+        'Ingrese la cadena a decodificar en binario')
     cadena_descodificar = str(cadena_descodificar)
-    cadena_codificar = solicitar_introducir_cadena_especial('Ingrese la cadena a codificar solo usando A,F,1,3,0,M,T')
-    print(Fore.LIGHTYELLOW_EX +'La cadena codificada es:', Ejercicio1.codificar(cadena_codificar, Ejercicio1.diccionario_convertido)) ; print(Fore.RESET)
+    print(Fore.LIGHTYELLOW_EX + 'La cadena descodificada es:',
+          Ejercicio1.descodificar(cadena_descodificar, Ejercicio1.bosque[0]), Fore.RESET)
+    cadena_descodificar = str(cadena_descodificar)
+    cadena_codificar = solicitar_introducir_cadena_especial(
+        'Ingrese la cadena a codificar solo usando A,F,1,3,0,M,T')
+    print(Fore.LIGHTYELLOW_EX + 'La cadena codificada es:',
+          Ejercicio1.codificar(cadena_codificar, Ejercicio1.diccionario_convertido))
+    print(Fore.RESET)
+
 ```
 
