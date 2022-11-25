@@ -11,7 +11,7 @@ MIN=0
 MAX=100
 
 
-def solicitar_introducir_numero(invite):
+def solicitar_introducir_numero_binario(invite):
     """
     Esta función verifica que tenemos un número
     """
@@ -35,6 +35,25 @@ def solicitar_introducir_numero(invite):
             else:
                 # Tenemos lo que queremos, salimos del bucle saliendo de la función
                 return datoIntroducido
+
+def solicitar_introducir_numero(invite):
+    """
+    Esta función verifica que tenemos un número
+    """
+    while True:
+        # Entramos en un bucle infinito
+
+        # Pedimos introducir un número
+        print(invite, end=": ")
+        datoIntroducido = input()
+
+        try:
+            datoIntroducido = int(datoIntroducido)
+        except:
+            print("Solo están autorizados los caracteres [0-1].", file=sys.stderr)
+        else:
+            # Tenemos lo que queremos, salimos del bucle saliendo de la función
+            return datoIntroducido
 
 def solicitar_introducir_numero_extremo(invite, minimum=MIN, maximum=MAX):
     """

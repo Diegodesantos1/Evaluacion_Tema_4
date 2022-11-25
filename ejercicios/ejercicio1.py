@@ -2,8 +2,9 @@ import os
 from colorama import init, Fore, Back, Style
 from clases.cola import Cola
 from clases.huffman import nodoArbolHuffman
-from introducir.numero import solicitar_introducir_numero
+from introducir.numero import solicitar_introducir_numero_binario
 from introducir.cadena import solicitar_introducir_cadena_especial
+
 
 class Ejercicio1:
     os.system('cls')
@@ -16,9 +17,6 @@ class Ejercicio1:
     for elemento in tabla_probabilidades:
         nodo = nodoArbolHuffman(elemento[0], elemento[1])
         bosque.append(nodo)
-    print(Fore.CYAN +"Tabla de probabilidades:\n", Fore.RESET)
-    for elemento in bosque:
-        print(elemento.info, elemento.valor)
     while(len(bosque) > 1):
         elemento1 = bosque.pop(0)
         elemento2 = bosque.pop(0)
@@ -26,8 +24,6 @@ class Ejercicio1:
         nodo.izq = elemento1
         nodo.der = elemento2
         bosque.append(nodo)
-    print("-"*30)
-    print(Fore.LIGHTGREEN_EX +"Tabla de codificación:\n",Fore.RESET)
 
     def generar_tabla(raiz, cadena=''):
         if(raiz is not None):
@@ -60,11 +56,11 @@ class Ejercicio1:
             cadena_cod += diccionario_convertido[caracter]
         return cadena_cod
 
-if __name__ == '__main__':
+def mainej1():
     Ejercicio1.generar_tabla(Ejercicio1.bosque[0])
-    print("-"*30)
-    cadena_descodificar = solicitar_introducir_numero('Ingrese la cadena a decodificar en binario') ; cadena_descodificar = str(cadena_descodificar)
+    print("-"*50)
+    cadena_descodificar = solicitar_introducir_numero_binario('Ingrese la cadena a decodificar en binario') ; cadena_descodificar = str(cadena_descodificar)
     print(Fore.LIGHTYELLOW_EX +'La cadena descodificada es:', Ejercicio1.descodificar(cadena_descodificar, Ejercicio1.bosque[0]) ,Fore.RESET)
     cadena_descodificar = str(cadena_descodificar)
     cadena_codificar = solicitar_introducir_cadena_especial('Ingrese la cadena a codificar solo usando A,F,1,3,0,M,T')
-    print(Fore.LIGHTYELLOW_EX +'La cadena codificada es: ', Ejercicio1.codificar(cadena_codificar, Ejercicio1.diccionario_convertido)) ; print(Fore.RESET)
+    print(Fore.LIGHTYELLOW_EX +'La cadena codificada es:', Ejercicio1.codificar(cadena_codificar, Ejercicio1.diccionario_convertido)) ; print(Fore.RESET)
