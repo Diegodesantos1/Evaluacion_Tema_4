@@ -2,6 +2,7 @@ class nodoCola(object):
     def __init__(self):
         self.info, self.sig = None, None
 
+
 class Cola(object):
 
     def __init__(self):
@@ -17,6 +18,7 @@ def arribo(cola, dato):
         cola.final.sig = nodo
     cola.final = nodo
     cola.tamanio += 1
+
 
 def atencion(cola):
     aux = cola.frente.info
@@ -34,8 +36,10 @@ def cola_vacia(cola):
 def tamanio(cola):
     return cola.tamanio
 
+
 def en_frente(cola):
     return cola.frente.info
+
 
 def mover_final(cola):
     x = atencion(cola)

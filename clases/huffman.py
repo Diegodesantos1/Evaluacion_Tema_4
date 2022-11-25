@@ -1,4 +1,6 @@
 from clases.cola import Cola, arribo, atencion, cola_vacia
+
+
 class nodoArbol(object):
     def __init__(self, info, nrr=None):
         self.izq = None
@@ -14,6 +16,7 @@ class nodoArbolHuffman(object):
         self.info = info
         self.valor = valor
 
+
 def insertar_nodo(raiz, dato, nrr=None):
     if(raiz is None):
         raiz = nodoArbol(dato, nrr)
@@ -23,6 +26,7 @@ def insertar_nodo(raiz, dato, nrr=None):
         else:
             raiz.der = insertar_nodo(raiz.der, dato, nrr)
     return raiz
+
 
 def por_nivel(raiz):
     cola = Cola()

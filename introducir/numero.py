@@ -7,8 +7,8 @@ que permiten solicitar introducir un dato numérico
 import sys
 
 
-MIN=0
-MAX=100
+MIN = 0
+MAX = 100
 
 
 def solicitar_introducir_numero_binario(invite):
@@ -25,16 +25,19 @@ def solicitar_introducir_numero_binario(invite):
         try:
             datoIntroducido = int(datoIntroducido)
         except:
-            print("Solo están autorizados los caracteres [0-1].", file=sys.stderr)
+            print(
+                "Solo están autorizados los caracteres [0-1].", file=sys.stderr)
         else:
             "comprueba que solo son 1s y 0s"
             for num in str(datoIntroducido):
                 if num not in "01":
-                    print("Solo están autorizados los caracteres [0-1].", file=sys.stderr)
+                    print(
+                        "Solo están autorizados los caracteres [0-1].", file=sys.stderr)
                     break
             else:
                 # Tenemos lo que queremos, salimos del bucle saliendo de la función
                 return datoIntroducido
+
 
 def solicitar_introducir_numero(invite):
     """
@@ -54,6 +57,7 @@ def solicitar_introducir_numero(invite):
         else:
             # Tenemos lo que queremos, salimos del bucle saliendo de la función
             return datoIntroducido
+
 
 def solicitar_introducir_numero_extremo(invite, minimum=MIN, maximum=MAX):
     """

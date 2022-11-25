@@ -1,12 +1,15 @@
 from clases.cola import Cola, cola_vacia, arribo, atencion
+
+
 class nodoArbol(object):
 
-    def __init__(self, info, nrr = None):
+    def __init__(self, info, nrr=None):
         self.izq = None
         self.der = None
         self.info = info
         self.nrr = nrr
         self.altura = 0
+
 
 class nodoArbolHuffman(object):
 
@@ -15,6 +18,7 @@ class nodoArbolHuffman(object):
         self.der = None
         self.info = info
         self.valor = valor
+
 
 def altura(raiz):
     """Devuelve la altura de un nodo."""
@@ -45,6 +49,7 @@ def insertar_nodo(raiz, dato, nrr=None):
     actualizaraltura(raiz)
     return raiz
 
+
 def inorden(raiz):
     "Realiza un recorrido del arbol, mostrando la informacion"
     if(raiz is not None):
@@ -60,12 +65,14 @@ def postorden(raiz):
         print(raiz.info)
         postorden(raiz.izq)
 
+
 def preorden(raiz):
     "Recorrido de orden previo, mostrando la informacion"
     if(raiz is not None):
         print(raiz.info)
         preorden(raiz.izq)
         preorden(raiz.der)
+
 
 def padre(raiz, buscado):
     if(raiz is not None):
@@ -74,6 +81,7 @@ def padre(raiz, buscado):
         else:
             padre(raiz.izq, buscado)
             padre(raiz.der, buscado)
+
 
 def por_nivel(raiz):
     "Muestra la informacion del arbol, por nivel"
@@ -99,6 +107,7 @@ def busqueda(raiz, buscado):
             else:
                 return busqueda(raiz.der, buscado)
 
+
 def busqueda_proximidad(raiz, buscado):
     if(raiz is not None):
         if(raiz.info[0:len(buscado)] == buscado):
@@ -109,6 +118,7 @@ def busqueda_proximidad(raiz, buscado):
 
 def arbol_vacio(raiz):
     return raiz is None
+
 
 def remplazar(raiz):
     """Determina el nodo que remplazará al que se elimina."""
@@ -142,17 +152,20 @@ def eliminar_nodo(raiz, clave):
     actualizaraltura(raiz)
     return raiz, x
 
+
 def hijo_der(arbol):
     if(arbol.der is None):
         print(arbol.der)
     else:
         print('Hijo derecho:', arbol.der.info)
 
+
 def hijo_izq(arbol):
     if(arbol.izq is None):
         print(arbol.izq)
     else:
         print('Hijo izquierdo:', arbol.izq.info)
+
 
 def rotar_simple(raiz, control):
     """Realiza una rotación simple de nodos a la derecha o a la izquierda."""
@@ -168,6 +181,7 @@ def rotar_simple(raiz, control):
     actualizaraltura(aux)
     raiz = aux
     return raiz
+
 
 def rotar_doble(raiz, control):
     """Realiza una rotación doble de nodos a la derecha o a la izquierda."""
@@ -195,12 +209,13 @@ def balancear(raiz):
                 raiz = rotar_doble(raiz, False)
     return raiz
 
+
 def cortar_por_nivel(raiz, bosque):
     cola = Cola()
     arribo(cola, raiz)
     while(not cola_vacia(cola)):
         nodo = atencion(cola)
-        if(altura(nodo) == 7 ):
+        if(altura(nodo) == 7):
             bosque.append(nodo.izq)
             bosque.append(nodo.der)
         if(nodo.izq is not None):
@@ -208,11 +223,13 @@ def cortar_por_nivel(raiz, bosque):
         if(nodo.der is not None):
             arribo(cola, nodo.der)
 
+
 def contar_a(raiz, cantidad):
     if(raiz is not None):
         contar_a(raiz.izq, cantidad)
         contar_a(raiz.der, cantidad)
         cantidad[0] += 1
+
 
 def por_nivel(raiz):
     'Barrido por nivel'

@@ -14,6 +14,7 @@ def solicitar_introducir_si_o_no(invite):
     except:
         return False
 
+
 def solicitar_introducir_verdadero_o_falso(invite):
     """Por defecto, toda respuesta no incluida vale FALSO"""
     try:

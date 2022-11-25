@@ -16,11 +16,11 @@ class HeapMax():
                 return resultado
 
     def flotar(self, indice):
-        padre = (indice -1) // 2
+        padre = (indice - 1) // 2
         while(indice > 0 and self.vector[indice][1] > self.vector[padre][1]):
             self.vector[indice], self.vector[padre] = self.vector[padre], self.vector[indice]
             indice = padre
-            padre = (indice -1) // 2
+            padre = (indice - 1) // 2
 
     def hundir(self, indice=0):
         hijo_izq = (indice * 2) + 1
@@ -41,7 +41,8 @@ class HeapMax():
 
     def quitar(self, heapsort=False):
         x, prioridad = self.vector[0][0], self.vector[0][1]
-        self.vector[0], self.vector[self.tamanio-1] = self.vector[self.tamanio-1], self.vector[0]
+        self.vector[0], self.vector[self.tamanio -
+                                    1] = self.vector[self.tamanio-1], self.vector[0]
         self.tamanio -= 1
         self.hundir()
         if not heapsort:
@@ -50,6 +51,7 @@ class HeapMax():
 
     def arribo(self, dato, prioridad):
         self.agregar(dato, prioridad)
+
 
 class HeapMin():
 
@@ -69,11 +71,11 @@ class HeapMin():
         self.tamanio += 1
 
     def flotar(self, indice):
-        padre = (indice -1) // 2
+        padre = (indice - 1) // 2
         while(indice > 0 and self.vector[indice][1] < self.vector[padre][1]):
             self.vector[indice], self.vector[padre] = self.vector[padre], self.vector[indice]
             indice = padre
-            padre = (indice -1) // 2
+            padre = (indice - 1) // 2
 
     def hundir(self, indice=0):
         hijo_izq = (indice * 2) + 1
@@ -93,7 +95,8 @@ class HeapMin():
 
     def quitar(self, heapsort=False):
         x, prioridad = self.vector[0][0], self.vector[0][1]
-        self.vector[0], self.vector[self.tamanio-1] = self.vector[self.tamanio-1], self.vector[0]
+        self.vector[0], self.vector[self.tamanio -
+                                    1] = self.vector[self.tamanio-1], self.vector[0]
         self.tamanio -= 1
         self.hundir()
         if not heapsort:

@@ -36,7 +36,7 @@ def solicitar_introducir_char(invite):
             # No se ha introducido nada
             print("Al menos debe indicar un carácter.", file=sys.stderr)
         elif len(datoIntroducido) > 1:
-            # No se ha introducido nada 
+            # No se ha introducido nada
             print("Debe indicar un único carácter.", file=sys.stderr)
         else:
             # Tenemos lo que queremos, salimos del bucle saliendo de la función
@@ -56,7 +56,7 @@ def solicitar_introducir_letra(invite):
             # Tenemos lo que queremos, salimos del bucle saliendo de la función
             return datoIntroducido
         elif datoIntroducido in string.ascii_uppercase:
-            
+
             return datoIntroducido.lower()
         else:
             print("Tiene que ser una letra!")
@@ -92,16 +92,17 @@ def solicitar_introducir_casilla(invite):
 
         if len(datoIntroducido) != 2:
             print("Debe indicar una letra y una cifra.",
-                file=sys.stderr)
+                  file=sys.stderr)
         elif datoIntroducido[0] not in string.ascii_letters:
             print("El primer carácter introducido debe ser una letra.",
-                file=sys.stderr)
+                  file=sys.stderr)
         elif datoIntroducido[1] not in string.digits:
             print("El segundo carácter introducido debe ser una cifra.",
-                file=sys.stderr)
+                  file=sys.stderr)
         else:
             # Todos los carácters se han probado y son letras.
             return datoIntroducido.upper()
+
 
 def solicitar_introducir_cadena_especial(invite):
     """
@@ -115,7 +116,7 @@ def solicitar_introducir_cadena_especial(invite):
         for caracter in datoIntroducido:
             if caracter not in "AF130MT":
                 print("El carácter introducido debe ser A,F,1,3,0,M,T",
-                    file=sys.stderr)
+                      file=sys.stderr)
                 break
         else:
             # Todos los carácters se han probado y son letras.

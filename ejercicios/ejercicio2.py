@@ -16,6 +16,8 @@ with open('dataset/pokemon.csv', newline='') as File:
 nombre = []
 for i in range(1, len(datos)):
     nombre.append(datos[i][1])
+
+
 class Pokemon(object):
 
     def __init__(self, nombre, numero, tipo, debilidad):
@@ -25,13 +27,15 @@ class Pokemon(object):
         self.debilidad = debilidad
 
     def __str__(self):
-       return self.nombre + ' ' + str(self.numero) + ' ' + self.tipo + ' ' + self.debilidad
+        return self.nombre + ' ' + str(self.numero) + ' ' + self.tipo + ' ' + self.debilidad
+
 
 def inorden_numero(raiz):
     if(raiz is not None):
         inorden_numero(raiz.izq)
         print(raiz.info[1], raiz.info[0])
         inorden_numero(raiz.der)
+
 
 def busqueda_proximidad_poke(raiz, buscado):
     if(raiz is not None):
@@ -41,12 +45,14 @@ def busqueda_proximidad_poke(raiz, buscado):
         busqueda_proximidad_poke(raiz.izq, buscado)
         busqueda_proximidad_poke(raiz.der, buscado)
 
+
 def busqueda_proximidad_poke2(raiz, buscado):
     if(raiz is not None):
         if(raiz.info[1][0:len(buscado)] == buscado):
             print(raiz.info[0].nombre)
         busqueda_proximidad_poke2(raiz.izq, buscado)
         busqueda_proximidad_poke2(raiz.der, buscado)
+
 
 def busqueda_proximidad_poke3(raiz, buscado):
     if(raiz is not None):
@@ -55,11 +61,13 @@ def busqueda_proximidad_poke3(raiz, buscado):
         busqueda_proximidad_poke3(raiz.izq, buscado)
         busqueda_proximidad_poke3(raiz.der, buscado)
 
+
 def inorden_nombre(raiz):
     if(raiz is not None):
         inorden_nombre(raiz.izq)
         print(raiz.info[0])
         inorden_nombre(raiz.der)
+
 
 def por_nivel_nombre(raiz):
     cola = Cola()
@@ -72,6 +80,7 @@ def por_nivel_nombre(raiz):
         if(nodo.der is not None):
             arribo(cola, nodo.der)
 
+
 def inorden_tipo(raiz, cont):
     if(raiz is not None):
         if raiz.info[0].tipo == 'fuego':
@@ -82,15 +91,20 @@ def inorden_tipo(raiz, cont):
     return cont
 
 
-tipo = ['agua', 'fuego', 'tierra', 'electrico', 'planta', 'hada', 'volador', 'dragon', 'fantasma', 'siniestro', 'lucha', 'roca', 'psiquico', 'bicho', 'normal', 'veneno', 'acero']
-debil = ['agua', 'fuego', 'tierra', 'electrico', 'planta','Jolteon', 'Lycanroc', 'Tyrantum']
+tipo = ['agua', 'fuego', 'tierra', 'electrico', 'planta', 'hada', 'volador', 'dragon',
+        'fantasma', 'siniestro', 'lucha', 'roca', 'psiquico', 'bicho', 'normal', 'veneno', 'acero']
+debil = ['agua', 'fuego', 'tierra', 'electrico',
+         'planta', 'Jolteon', 'Lycanroc', 'Tyrantum']
 
 
-for i in range (0, len(nombre)):
-    pokemon = Pokemon(nombre[i], random.randint(1, len(nombre)), random.choice(tipo), random.choice(debil))
+for i in range(0, len(nombre)):
+    pokemon = Pokemon(nombre[i], random.randint(
+        1, len(nombre)), random.choice(tipo), random.choice(debil))
     arbol_nombres = insertar_nodo(arbol_nombres, [pokemon, pokemon.nombre])
     arbol_tipo = insertar_nodo(arbol_tipo, [pokemon, pokemon.tipo])
     arbol_numero = insertar_nodo(arbol_numero, [pokemon, pokemon.numero])
+
+
 def mainej2():
     eleccion = solicitar_introducir_numero_extremo("1. Mostrar los datos cargados\n2. Mostrar información del pokemon dado el número\n3. Mostrar pokemon dado el nombre por proximidad\n4. Mostrar todos los pokemon de un tipo\n5. Realizar un listado en orden ascendente por número de Pokémon\n6. Realizar un listado en orden ascendente por nombre de Pokémon\n7. Realizar un listado en orden ascendente por nivel por nombre\n8. Mostrar todos los Pokémons que son débiles frente a Jolteon, Lycanroc y Tyrantrum\n9. Mostrar todos los tipos de Pokémons y cuántos hay de cada tipo.\n10. Salir", 1, 10)
     print("=" * 50)
@@ -100,16 +114,19 @@ def mainej2():
         print("=" * 50)
         mainej2()
     if eleccion == 2:
-        numero = solicitar_introducir_numero_extremo("Introduzca el numero del pokemon", 1, len(nombre))
+        numero = solicitar_introducir_numero_extremo(
+            "Introduzca el numero del pokemon", 1, len(nombre))
         print("Nombre: ", datos[numero][1]), print("Tipo: ", datos[numero][2])
         print("=" * 50)
         mainej2()
     elif eleccion == 3:
-        busqueda_proximidad_poke(arbol_nombres, solicitar_introducir_cadena("Introduzca el nombre del pokemon: "))
+        busqueda_proximidad_poke(arbol_nombres, solicitar_introducir_cadena(
+            "Introduzca el nombre del pokemon: "))
         print("=" * 50)
         mainej2()
     elif eleccion == 4:
-        tipo = solicitar_introducir_cadena('Ingrese el tipo de pokemon a buscar')
+        tipo = solicitar_introducir_cadena(
+            'Ingrese el tipo de pokemon a buscar')
         print('Todos los pokemons de un tipo:')
         busqueda_proximidad_poke2(arbol_tipo, tipo.lower())
         print("=" * 50)
@@ -140,7 +157,7 @@ def mainej2():
         print('Todos los tipos de Pokémons y cuántos hay de cada tipo:')
         cont = 0
         cont = inorden_tipo(arbol_nombres, cont)
-        print('Cantidad del tipo fuego:',cont)
+        print('Cantidad del tipo fuego:', cont)
         print("=" * 50)
         mainej2()
     elif eleccion == 10:

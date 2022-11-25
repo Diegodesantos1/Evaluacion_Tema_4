@@ -14,7 +14,7 @@ def criterio(dato, campo=None):
 
 class nodoArista():
     informacion, siguiente, peso = None, None, None
-    #? informacion es el destino
+    # ? informacion es el destino
 
 
 class nodoVertice():
@@ -109,7 +109,6 @@ class Grafo():
         self.__tamanio = 0
         self.__dirigido = dirigido
 
-
     def insertar_vertice(self, dato, campo=None, datos=None):
         nodo = nodoVertice()
         nodo.informacion = dato
@@ -153,6 +152,7 @@ class Grafo():
         while(aux is not None):
             aux.visitado = False
             aux = aux.siguiente
+
     def busqueda_vertice(self, buscado, campo=None):
         pos = None
         aux = self.__inicio
@@ -239,7 +239,8 @@ class Grafo():
                 if adyacentes.informacion == destino:
                     resultado = True
                 else:
-                    resultado = self.existe_paso(adyacentes.informacion, destino)
+                    resultado = self.existe_paso(
+                        adyacentes.informacion, destino)
                 adyacentes = adyacentes.siguiente
         return resultado
 
@@ -312,7 +313,8 @@ class Grafo():
             bosque.append(str(aux.informacion))
             adyacentes = aux.adyacentes.get_inicio()
             while adyacentes is not None:
-                aristas.arribo([aux.informacion, adyacentes.informacion], adyacentes.peso)
+                aristas.arribo(
+                    [aux.informacion, adyacentes.informacion], adyacentes.peso)
                 adyacentes = adyacentes.siguiente
             aux = aux.siguiente
 
@@ -332,7 +334,8 @@ class Grafo():
                     elif ';' not in origen and ';' in destino:
                         bosque.append(destino+f'-{origen};{arista[1]};{peso}')
                     else:
-                        bosque.append(origen+'-'+destino+f'-{arista[0]};{arista[1]};{peso}')
+                        bosque.append(origen+'-'+destino +
+                                      f'-{arista[0]};{arista[1]};{peso}')
 
         return bosque
 
@@ -378,7 +381,8 @@ class Grafo():
             bosque.append(str(aux.informacion))
             adyacentes = aux.adyacentes.get_inicio()
             while adyacentes is not None:
-                aristas.arribo([aux.informacion, adyacentes.informacion], adyacentes.peso)
+                aristas.arribo(
+                    [aux.informacion, adyacentes.informacion], adyacentes.peso)
                 adyacentes = adyacentes.siguiente
             aux = aux.siguiente
 
@@ -394,10 +398,11 @@ class Grafo():
                         bosque.append(f'{origen};{destino};{peso}')
                     elif ';' in origen and ';' not in destino:
                         bosque.append(origen+f'-{arista[0]};{destino};{peso}')
-                    elif ';' not in origen and ';'  in destino:
+                    elif ';' not in origen and ';' in destino:
                         bosque.append(destino+f'-{origen};{arista[1]};{peso}')
                     else:
-                        bosque.append(origen+'-'+destino+f'-{arista[0]};{arista[1]};{peso}')
+                        bosque.append(origen+'-'+destino +
+                                      f'-{arista[0]};{arista[1]};{peso}')
 
         return bosque
 
@@ -414,7 +419,8 @@ class Grafo():
             bosque.append(str(aux.informacion))
             adyacentes = aux.adyacentes.get_inicio()
             while adyacentes is not None:
-                aristas.arribo([aux.informacion, adyacentes.informacion], adyacentes.peso)
+                aristas.arribo(
+                    [aux.informacion, adyacentes.informacion], adyacentes.peso)
                 adyacentes = adyacentes.siguiente
             aux = aux.siguiente
 
@@ -430,10 +436,11 @@ class Grafo():
                         bosque.append(f'{origen};{destino};{peso}')
                     elif ';' in origen and ';' not in destino:
                         bosque.append(origen+f'-{arista[0]};{destino};{peso}')
-                    elif ';' not in origen and ';'  in destino:
+                    elif ';' not in origen and ';' in destino:
                         bosque.append(destino+f'-{origen};{arista[1]};{peso}')
                     else:
-                        bosque.append(origen+'-'+destino+f'-{arista[0]};{arista[1]};{peso}')
+                        bosque.append(origen+'-'+destino +
+                                      f'-{arista[0]};{arista[1]};{peso}')
 
         return bosque
 
@@ -450,7 +457,8 @@ class Grafo():
             bosque.append(str(aux.informacion))
             adyacentes = aux.adyacentes.get_inicio()
             while adyacentes is not None:
-                aristas.arribo([aux.informacion, adyacentes.informacion], adyacentes.peso)
+                aristas.arribo(
+                    [aux.informacion, adyacentes.informacion], adyacentes.peso)
                 adyacentes = adyacentes.siguiente
             aux = aux.siguiente
 
@@ -466,9 +474,10 @@ class Grafo():
                         bosque.append(f'{origen};{destino};{peso}')
                     elif ';' in origen and ';' not in destino:
                         bosque.append(origen+f'-{arista[0]};{destino};{peso}')
-                    elif ';' not in origen and ';'  in destino:
+                    elif ';' not in origen and ';' in destino:
                         bosque.append(destino+f'-{origen};{arista[1]};{peso}')
                     else:
-                        bosque.append(origen+'-'+destino+f'-{arista[0]};{arista[1]};{peso}')
+                        bosque.append(origen+'-'+destino +
+                                      f'-{arista[0]};{arista[1]};{peso}')
 
         return bosque
