@@ -21,13 +21,11 @@ debil = ['agua', 'fuego', 'tierra', 'electrico', 'Jolteon', 'Lycanroc', 'Tyrantu
 nombre = ['Bulbasaur', 'Charmander', 'Pikachu', 'Ivysaur', 'Charmeleon', 'Charizard', 'Squirtle', 'wartortle', 'Venusaur']
 
 
-print("Apartado A")
 for i in range (0, len(nombre)):
     pokemon = Pokemon(nombre[i], random.randint(1, 100), random.choice(tipo), random.choice(debil))
     arbol_nombres = insertar_nodo(arbol_nombres, [pokemon, pokemon.nombre])
     arbol_tipo = insertar_nodo(arbol_tipo, [pokemon, pokemon.tipo])
     arbol_numero = insertar_nodo(arbol_numero, [pokemon, pokemon.numero])
-
 
 print("Apartado B")
 def inorden_numero(raiz):

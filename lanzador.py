@@ -1,7 +1,6 @@
 
 from introducir.numero import solicitar_introducir_numero_extremo
 from ejercicios.ejercicio1 import mainej1
-import ejercicios.ejercicio2 
 from colorama import Fore
 import os
 
