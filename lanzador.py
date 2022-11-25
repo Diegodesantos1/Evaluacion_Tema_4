@@ -1,11 +1,14 @@
 
 from introducir.numero import solicitar_introducir_numero_extremo
 from ejercicios.ejercicio1 import mainej1
+from colorama import Fore
+import os
 
 def main():
-    print("Bienvenido al menú de ejercicios del tema 4")
+    print(Fore.LIGHTCYAN_EX + "Bienvenido al menú de ejercicios del tema 4")
     print("=" * 50)
     eleccion = solicitar_introducir_numero_extremo("Introduzca el número del ejercicio que desea ejecutar (1-3) (4 para salir)",1,4)
+    print(Fore.RESET) ; os.system('cls')
     if eleccion == 1:
         mainej1()
         main()

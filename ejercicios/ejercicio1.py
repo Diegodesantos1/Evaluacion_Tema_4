@@ -1,5 +1,5 @@
 import os
-from colorama import init, Fore, Back, Style
+from colorama import Fore
 from clases.cola import Cola
 from clases.huffman import nodoArbolHuffman
 from introducir.numero import solicitar_introducir_numero_binario
@@ -57,6 +57,11 @@ class Ejercicio1:
         return cadena_cod
 
 def mainej1():
+    print(Fore.GREEN + "La tabla de probabilidades es: ", Fore.RESET)
+    for elemento in Ejercicio1.tabla_probabilidades:
+        print(elemento[0], elemento[1])
+    print("-" * 50)
+    print(Fore.GREEN + "La tabla de codificación es:", Fore.RESET)
     Ejercicio1.generar_tabla(Ejercicio1.bosque[0])
     print("-"*50)
     cadena_descodificar = solicitar_introducir_numero_binario('Ingrese la cadena a decodificar en binario') ; cadena_descodificar = str(cadena_descodificar)
