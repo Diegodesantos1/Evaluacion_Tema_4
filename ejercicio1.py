@@ -1,5 +1,6 @@
 from clases.cola import Cola
 from clases.huffman import nodoArbolHuffman
+from introducir.numero import solicitar_introducir_numero
 class Ejercicio1:
     tabla_probabilidades = [['A', 0.2], ['F', 0.17], ['1', 0.13], ['3', 0.21], ['0', 0.05], ['M', 0.09], ['T', 0.15]]
 
@@ -20,6 +21,7 @@ class Ejercicio1:
         nodo.izq = elemento1
         nodo.der = elemento2
         bosque.append(nodo)
+    print("-"*30)
 
     def generar_tabla(raiz, cadena=''):
         if(raiz is not None):
@@ -52,10 +54,11 @@ class Ejercicio1:
             cadena_cod += diccionario_convertido[caracter]
         return cadena_cod
 
-Ejercicio1.generar_tabla(Ejercicio1.bosque[0])
+if __name__ == '__main__':
+    Ejercicio1.generar_tabla(Ejercicio1.bosque[0])
 
-cadena_descodificar = int(input('Ingrese la cadena a decodificar en binario: '))
-cadena_descodificar = str(cadena_descodificar)
-cadena_codificar = input('Ingrese la cadena a codificar: ')
-print('La cadena descodificada es: ', Ejercicio1.descodificar(cadena_descodificar, Ejercicio1.bosque[0]))
-print('La cadena codificada es: ', Ejercicio1.codificar(cadena_codificar, Ejercicio1.diccionario_convertido))
+    cadena_descodificar = solicitar_introducir_numero('Ingrese la cadena a decodificar en binario:') ; cadena_descodificar = str(cadena_descodificar)
+    print('La cadena descodificada es:', Ejercicio1.descodificar(cadena_descodificar, Ejercicio1.bosque[0]))
+    cadena_descodificar = str(cadena_descodificar)
+    cadena_codificar = input('Ingrese la cadena a codificar solo usando A,F,1,3,0,M,T: ')
+    print('La cadena codificada es: ', Ejercicio1.codificar(cadena_codificar, Ejercicio1.diccionario_convertido))
