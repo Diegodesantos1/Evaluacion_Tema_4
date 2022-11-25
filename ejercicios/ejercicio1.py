@@ -1,6 +1,5 @@
 import os
 from colorama import Fore
-from clases.cola import Cola
 from clases.huffman import nodoArbolHuffman
 from introducir.numero import solicitar_introducir_numero_binario
 from introducir.cadena import solicitar_introducir_cadena_especial
@@ -80,3 +79,6 @@ def mainej1():
     print(Fore.LIGHTYELLOW_EX + 'La cadena codificada es:',
           Ejercicio1.codificar(cadena_codificar, Ejercicio1.diccionario_convertido))
     print(Fore.RESET)
+
+if __name__ == "__main__":
+    mainej1()
