@@ -18,7 +18,6 @@ g.insertar_vertice('X', datos=diccionario[3])
 g.insertar_vertice('R', datos=diccionario[4])
 g.insertar_vertice('K', datos=diccionario[5])
 g.insertar_vertice('S', datos=diccionario[6])
-
 g.insertar_vertice('L', datos=diccionario[7])
 g.insertar_vertice('J', datos=diccionario[8])
 g.insertar_vertice('I', datos=diccionario[9])
