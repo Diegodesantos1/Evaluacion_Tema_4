@@ -31,7 +31,7 @@ class Ejercicio1:
                 cadena = cadena[0:-1]
                 cadena += '1'
                 Ejercicio1.generar_tabla(raiz.der, cadena)
-    def decodificar(cadena, arbol_huff):
+    def descodificar(cadena, arbol_huff):
         cadena_deco = ''
         raiz_aux = arbol_huff
         pos = 0
@@ -46,9 +46,16 @@ class Ejercicio1:
                 raiz_aux = arbol_huff
             cadena_deco
         return cadena_deco
+    def codificar(cadena, diccionario_convertido):
+        cadena_cod = ''
+        for caracter in cadena:
+            cadena_cod += diccionario_convertido[caracter]
+        return cadena_cod
 
 Ejercicio1.generar_tabla(Ejercicio1.bosque[0])
 
-cadena = int(input('Ingrese la cadena a decodificar en binario: '))
-cadena = str(cadena)
-print(Ejercicio1.decodificar(cadena, Ejercicio1.bosque[0]))
+cadena_descodificar = int(input('Ingrese la cadena a decodificar en binario: '))
+cadena_descodificar = str(cadena_descodificar)
+cadena_codificar = input('Ingrese la cadena a codificar: ')
+print('La cadena descodificada es: ', Ejercicio1.descodificar(cadena_descodificar, Ejercicio1.bosque[0]))
+print('La cadena codificada es: ', Ejercicio1.codificar(cadena_codificar, Ejercicio1.diccionario_convertido))
