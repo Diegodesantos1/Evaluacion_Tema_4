@@ -1,6 +1,7 @@
 from clases.arbolbinario import insertar_nodo
 from clases.cola import Cola, arribo, atencion, cola_vacia
 from introducir.numero import solicitar_introducir_numero_extremo
+from introducir.cadena import solicitar_introducir_cadena
 import csv
 import random
 arbol_nombres = None
@@ -99,11 +100,11 @@ def mainej2():
         print("=" * 50)
         mainej2()
     elif eleccion == 2:
-        busqueda_proximidad_poke(arbol_nombres, str(input("Introduzca el nombre del pokemon: ")))
+        busqueda_proximidad_poke(arbol_nombres, solicitar_introducir_cadena("Introduzca el nombre del pokemon: "))
         print("=" * 50)
         mainej2()
     elif eleccion == 3:
-        tipo = str(input('Ingrese el tipo de pokemon a buscar:'))
+        tipo = solicitar_introducir_cadena('Ingrese el tipo de pokemon a buscar:')
         print('Todos los pokemons de un tipo:')
         busqueda_proximidad_poke2(arbol_tipo, tipo.lower())
         print("=" * 50)
