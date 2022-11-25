@@ -2,10 +2,11 @@
 
 En este [repositorio](https://github.com/Diegodesantos1/Evaluacion_Tema_4) quedan resueltos los ejercicios de evaluación Tema 4 
 
-<h2 align = "center"> Ejercicio 1</h2>
+<h2 align = "center"> Ejercicio 1: Poe dameron</h2>
 
 ![image](https://user-images.githubusercontent.com/91721855/203891239-42cd8012-b113-4e3c-8dec-3fbe19b22d6e.png)
 ![image](https://user-images.githubusercontent.com/91721855/203891290-a35c04b9-68d1-4dd4-8dc9-31d156db4218.png)
+![image](https://user-images.githubusercontent.com/91721855/204056099-2407aaab-8032-4159-8b58-417db732a589.png)
 
 El código empleado es el siguiente:
 
@@ -104,9 +105,10 @@ def mainej1():
         pass
 ```
 
-<h2 align = "center"> Ejercicio 2</h2>
+<h2 align = "center"> Ejercicio 2: Pokemon</h2>
 
 ![image](https://user-images.githubusercontent.com/91721855/204055851-51ac6deb-4ef9-43e0-ad62-481de2b24b7b.png)
+![image](https://user-images.githubusercontent.com/91721855/204056139-453f1ea1-ddd6-4e99-8055-7c87e47beaee.png)
 
 El código empleado es el siguiente:
 
@@ -260,9 +262,10 @@ def mainej2():
         pass
 ```
 
-<h2 align = "center"> Ejercicio 3</h2>
+<h2 align = "center"> Ejercicio 3: Siete maravillas</h2>
 
 ![image](https://user-images.githubusercontent.com/91721855/204055906-a2fa0a84-115d-436f-a80f-09227405d88e.png)
+![image](https://user-images.githubusercontent.com/91721855/204056169-39a6df60-8e25-4880-a4a3-66985856e213.png)
 
 El código empleado es el siguiente:
 
