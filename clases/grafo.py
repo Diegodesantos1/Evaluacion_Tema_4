@@ -436,3 +436,39 @@ class Grafo():
                         bosque.append(origen+'-'+destino+f'-{arista[0]};{arista[1]};{peso}')
 
         return bosque
+
+    def prim_minimo(self, origen):
+        def buscar_en_bosque(bosque, buscado):
+            for arbol in bosque:
+                if buscado in arbol:
+                    return arbol
+
+        bosque = []
+        aristas = HeapMin()
+        aux = self.__inicio
+        while aux is not None:
+            bosque.append(str(aux.informacion))
+            adyacentes = aux.adyacentes.get_inicio()
+            while adyacentes is not None:
+                aristas.arribo([aux.informacion, adyacentes.informacion], adyacentes.peso)
+                adyacentes = adyacentes.siguiente
+            aux = aux.siguiente
+
+        while len(bosque) > 1 and aristas.tamanio > 0:
+            arista, peso = aristas.quitar()
+            origen = buscar_en_bosque(bosque, arista[0])
+            destino = buscar_en_bosque(bosque, arista[1])
+            if origen is not None and destino is not None:
+                if origen != destino:
+                    bosque.remove(origen)
+                    bosque.remove(destino)
+                    if ';' not in origen and ';' not in destino:
+                        bosque.append(f'{origen};{destino};{peso}')
+                    elif ';' in origen and ';' not in destino:
+                        bosque.append(origen+f'-{arista[0]};{destino};{peso}')
+                    elif ';' not in origen and ';'  in destino:
+                        bosque.append(destino+f'-{origen};{arista[1]};{peso}')
+                    else:
+                        bosque.append(origen+'-'+destino+f'-{arista[0]};{arista[1]};{peso}')
+
+        return bosque
