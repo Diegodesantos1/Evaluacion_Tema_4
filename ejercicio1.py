@@ -31,8 +31,24 @@ class Ejercicio1:
                 cadena = cadena[0:-1]
                 cadena += '1'
                 Ejercicio1.generar_tabla(raiz.der, cadena)
-
+    def decodificar(cadena, arbol_huff):
+        cadena_deco = ''
+        raiz_aux = arbol_huff
+        pos = 0
+        while(pos < len(cadena)):
+            if(cadena[pos] == '0'):
+                raiz_aux = raiz_aux.izq
+            else:
+                raiz_aux = raiz_aux.der
+            pos += 1
+            if(raiz_aux.izq is None):
+                cadena_deco += raiz_aux.info
+                raiz_aux = arbol_huff
+            cadena_deco
+        return cadena_deco
 
 Ejercicio1.generar_tabla(Ejercicio1.bosque[0])
 
-
+cadena = int(input('Ingrese la cadena a decodificar en binario: '))
+cadena = str(cadena)
+print(Ejercicio1.decodificar(cadena, Ejercicio1.bosque[0]))
