@@ -50,7 +50,7 @@ def solicitar_introducir_numero(invite):
         try:
             datoIntroducido = int(datoIntroducido)
         except:
-            print("Solo están autorizados los caracteres [0-1].", file=sys.stderr)
+            print("Solo están autorizados los caracteres [0-4].", file=sys.stderr)
         else:
             # Tenemos lo que queremos, salimos del bucle saliendo de la función
             return datoIntroducido
