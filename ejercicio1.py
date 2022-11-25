@@ -63,8 +63,8 @@ class Ejercicio1:
 if __name__ == '__main__':
     Ejercicio1.generar_tabla(Ejercicio1.bosque[0])
     print("-"*30)
-    cadena_descodificar = solicitar_introducir_numero(Fore.LIGHTMAGENTA_EX + 'Ingrese la cadena a decodificar en binario') ; cadena_descodificar = str(cadena_descodificar)
-    print(Fore.LIGHTYELLOW_EX +'La cadena descodificada es:', Ejercicio1.descodificar(cadena_descodificar, Ejercicio1.bosque[0]))
+    cadena_descodificar = solicitar_introducir_numero('Ingrese la cadena a decodificar en binario') ; cadena_descodificar = str(cadena_descodificar)
+    print(Fore.LIGHTYELLOW_EX +'La cadena descodificada es:', Ejercicio1.descodificar(cadena_descodificar, Ejercicio1.bosque[0]) ,Fore.RESET)
     cadena_descodificar = str(cadena_descodificar)
-    cadena_codificar = solicitar_introducir_cadena_especial(Fore.LIGHTMAGENTA_EX + 'Ingrese la cadena a codificar solo usando A,F,1,3,0,M,T: ')
-    print(Fore.LIGHTYELLOW_EX +'La cadena codificada es: ', Ejercicio1.codificar(cadena_codificar, Ejercicio1.diccionario_convertido), Fore.RESET)
+    cadena_codificar = solicitar_introducir_cadena_especial('Ingrese la cadena a codificar solo usando A,F,1,3,0,M,T')
+    print(Fore.LIGHTYELLOW_EX +'La cadena codificada es: ', Ejercicio1.codificar(cadena_codificar, Ejercicio1.diccionario_convertido)) ; print(Fore.RESET)

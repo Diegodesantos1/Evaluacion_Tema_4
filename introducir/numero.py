@@ -27,8 +27,14 @@ def solicitar_introducir_numero(invite):
         except:
             print("Solo están autorizados los caracteres [0-1].", file=sys.stderr)
         else:
-            # Tenemos lo que queremos, salimos del bucle saliendo de la función
-            return datoIntroducido
+            "comprueba que solo son 1s y 0s"
+            for num in str(datoIntroducido):
+                if num not in "01":
+                    print("Solo están autorizados los caracteres [0-1].", file=sys.stderr)
+                    break
+            else:
+                # Tenemos lo que queremos, salimos del bucle saliendo de la función
+                return datoIntroducido
 
 def solicitar_introducir_numero_extremo(invite, minimum=MIN, maximum=MAX):
     """

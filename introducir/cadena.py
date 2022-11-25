@@ -114,8 +114,9 @@ def solicitar_introducir_cadena_especial(invite):
 
         for caracter in datoIntroducido:
             if caracter not in "AF130MT":
-                print("El carácter introducido debe ser A,F,1,3,0,M,T.",
+                print("El carácter introducido debe ser A,F,1,3,0,M,T",
                     file=sys.stderr)
+                solicitar_introducir_cadena_especial(invite)
         else:
             # Todos los carácters se han probado y son letras.
             return datoIntroducido.upper()
